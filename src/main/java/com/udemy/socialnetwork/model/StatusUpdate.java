@@ -1,13 +1,16 @@
 package com.udemy.socialnetwork.model;
 
 import lombok.Data;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.CreationTimestamp;
 
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Objects;
 
-@Data
 @Entity
 @Table(name="status_update")
 public class StatusUpdate {
@@ -16,6 +19,8 @@ public class StatusUpdate {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
+    @Size(min = 5, max = 255, message = "{addStatus.text.size}")
     @Column(name = "text")
     private String text;
 

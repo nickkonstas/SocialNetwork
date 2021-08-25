@@ -36,3 +36,7 @@
 textarea {
     width: 100%;
 }
+
+.errors {
+    color: red;
+}
