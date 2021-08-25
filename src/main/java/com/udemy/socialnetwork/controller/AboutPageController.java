@@ -1,4 +1,4 @@
-package com.udemy.socialnetwork.controllers;
+package com.udemy.socialnetwork.controller;
 
 
 import org.springframework.stereotype.Controller;

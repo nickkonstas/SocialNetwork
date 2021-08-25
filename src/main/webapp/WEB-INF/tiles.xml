@@ -7,7 +7,7 @@
         <put-attribute name="title" value="SocialNetworkUdemy" />
     </definition>
 
-    <definition name="app.homepage" extends="app.default">
+    <definition name="app.home" extends="app.default">
         <put-attribute name="content" value="/WEB-INF/tiles/home.jsp" />
     </definition>
 
