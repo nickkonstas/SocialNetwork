@@ -38,6 +38,9 @@ public class AddStatusPageController {
             statusUpdateService.save(statusUpdate);
             //Clear the submit form in addStatus.jsp if there aren't any errors in validation
             modelAndView.getModel().put("statusUpdate", new StatusUpdate());
+
+            //Redirect to viewStatus page if everything went ok
+            modelAndView.setViewName("redirect:/viewStatus");
         }
         StatusUpdate latestStatusUpdate = statusUpdateService.getLatest();
         modelAndView.getModel().put("latestStatusUpdate", latestStatusUpdate);

@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>HomePage</title>
 </head>
 <body>
-Welcome to Home Page!!!
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="homepage-status">
+                ${statusUpdate.text}
+            </div>
+        </div>
+    </div>
 </body>
 </html>
