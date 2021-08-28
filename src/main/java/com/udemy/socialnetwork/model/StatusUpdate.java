@@ -3,6 +3,7 @@ package com.udemy.socialnetwork.model;
 import lombok.Data;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class StatusUpdate {
 
     @Column(name = "added")
     @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy/MM/dd H:mm:ss")
     private Date added;
 
     @PrePersist

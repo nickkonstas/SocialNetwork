@@ -27,6 +27,15 @@
     font-weight: bold;
 }
 
+.navbar-default .navbar-nav > .open > a {
+    background: none !important;
+    color: yellow;
+}
+
+.navbar-default .navbar-nav > .open > a:focus {
+    color: white;
+}
+
 .panel > .panel-heading {
     background-color: blueviolet;
     color: whitesmoke;
@@ -50,4 +59,32 @@ textarea {
     text-align: center;
     margin-top: 30px;
     font-size: larger;
+}
+
+.edit-links {
+    margin-top: 10px;
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-form > div {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login-form > div > button {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    border-color: darkblue;
+}
+
+.login-error {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: red;
+    font-weight: bold;
 }

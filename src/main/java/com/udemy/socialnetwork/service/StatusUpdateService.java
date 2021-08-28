@@ -9,10 +9,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class StatusUpdateService {
 
-    private final static int PAGESIZE = 3;
+    private final static int PAGESIZE = 5;
 
     @Autowired
     private StatusUpdateDao statusUpdateDao;
@@ -32,4 +34,11 @@ public class StatusUpdateService {
         return statusUpdateDao.findAll(pageRequest);
     }
 
+    public void delete(Long id) {
+        statusUpdateDao.deleteById(id);
+    }
+
+    public Optional<StatusUpdate> get(Long id) {
+       return statusUpdateDao.findById(id);
+    }
 }

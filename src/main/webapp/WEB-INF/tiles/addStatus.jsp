@@ -13,11 +13,6 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <fmt:setTimeZone value="GMT+3"/>
 
-<html>
-<head>
-
-</head>
-<body>
 
 <div class="row">
 
@@ -28,8 +23,6 @@
             <div class="panel-heading">
                 <div class="panel-title">Add Status Update</div>
             </div>
-
-            <div class="panel-body">
                 <form:form modelAttribute="statusUpdate">
                     <div class="errors">
                         <form:errors path="text" />
@@ -40,16 +33,13 @@
                     </div>
                     <input type="submit" name="submit" value="Add Status"/>
                 </form:form>
-            </div>
         </div>
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <div class="panel-title">Status Update added on: <fmt:formatDate pattern="EEEE d MMMM y 'at' H:mm:s"  value="${latestStatusUpdate.added}"/></div>
+                <div class="panel-title">Latest Status Update added on: <fmt:formatDate pattern="EEEE d MMMM y 'at' H:mm:s"  value="${latestStatusUpdate.added}"/></div>
             </div>
-            <div class="panel-body">
-                <c:out value="${latestStatusUpdate.text}"/>
-            </div>
+                <div class="panel-body" ${latestStatusUpdate.text}/>
         </div>
     </div>
 </div>
@@ -61,6 +51,3 @@
         plugins: "link"
     })
 </script>
-
-</body>
-</html>

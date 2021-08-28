@@ -33,6 +33,8 @@ public class AddStatusPageController {
     @RequestMapping(value = "/addStatus", method=RequestMethod.POST)
     public ModelAndView addStatusPost(ModelAndView modelAndView, @Valid @ModelAttribute("statusUpdate") StatusUpdate statusUpdate, BindingResult bindingResult) {
         modelAndView.setViewName("app.addStatus");
+        System.out.println(statusUpdate.getAdded());
+
 
         if(!bindingResult.hasErrors()) {
             statusUpdateService.save(statusUpdate);
