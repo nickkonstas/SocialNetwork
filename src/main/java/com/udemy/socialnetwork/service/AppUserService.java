@@ -24,7 +24,9 @@ public class AppUserService implements UserDetailsService {
 
     public void register(AppUser user) {
         user.setRole("ROLE_USER");
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        //Now the encryption happens in the AppUser model with the plain password "hack"
+        //user.setPassword(passwordEncoder.encode(user.getPassword()));
         appUserDao.save(user);
     }
 

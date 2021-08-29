@@ -29,12 +29,12 @@
                     </div>
 
                     <div class="input-group">
-                        <form:input type="password" path="password" placeholder="Password"
+                        <form:input type="password" path="plainPassword" placeholder="Password"
                                class="form-control" />
                     </div>
 
                     <div class="input-group">
-                        <input type="password" name="Repeat Password" placeholder="Repeat Password"
+                        <form:input type="password" path="repeatPassword" placeholder="Repeat Password"
                                class="form-control" />
                     </div>
 
