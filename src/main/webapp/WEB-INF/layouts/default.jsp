@@ -58,10 +58,15 @@
 
             <sec:authorize access="!isAuthenticated()">
                 <li><a href="${contextRoot}/login">Log In</a></li>
+                <li><a href="${contextRoot}/register">Register</a></li>
+
             </sec:authorize>
 
                 <sec:authorize access="isAuthenticated()">
                     <li><a href="javascript:$('#logoutForm').submit();">Log Out</a></li>
+                </sec:authorize>
+
+                <sec:authorize access="hasRole('ADMIN')">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Status <span class="caret"></span></a>
@@ -71,6 +76,7 @@
                         </ul>
                     </li>
                 </sec:authorize>
+
             </ul>
         </div>
         <!--/.nav-collapse -->
