@@ -3,6 +3,7 @@ package com.udemy.socialnetwork.controller;
 
 import com.udemy.socialnetwork.model.AppUser;
 import com.udemy.socialnetwork.service.AppUserService;
+import com.udemy.socialnetwork.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,9 @@ import javax.validation.Valid;
 public class RegisterController {
 
     @Autowired
+    private EmailService emailService;
+
+    @Autowired
     private AppUserService appUserService;
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -28,13 +32,20 @@ public class RegisterController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/verifyemail")
+        String verifyemailView() {
+            return "app.verifyemail";
+        }
+
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     ModelAndView registerPost(ModelAndView modelAndView, @ModelAttribute(value = "user") @Valid AppUser user, BindingResult result) {
         modelAndView.setViewName("app.register");
 
         if(!result.hasErrors()) {
             appUserService.register(user);
-            modelAndView.setViewName("redirect:/");
+            emailService.sendVerificationEmail(user.getEmail());
+            modelAndView.setViewName("redirect:/verifyemail");
         }
         return modelAndView;
     }

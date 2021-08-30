@@ -1,4 +1,4 @@
-package com.udemy.socialnetwork.security;
+package com.udemy.socialnetwork.configuration;
 
 import com.udemy.socialnetwork.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
