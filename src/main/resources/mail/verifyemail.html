@@ -3,10 +3,9 @@
 
 <th:block xmlns:th="http://www.thymeleaf.org">
 
-  <span th:text="'Hello ' + ${name} ">Hi there Jim</span>
 
   <p>Thank you for registering to our site</p>
-  <p>Please click <a href="#"> Here </a>to verify your email address</p>
+  <p>Please click <a th:href="@{${url} + '/confirmregister?t=' + ${token}}"> Here </a>to verify your email address</p>
 
 
 </th:block>

@@ -36,6 +36,9 @@ public class AppUser {
     @Column(name= "role", length = 20)
     private String role;
 
+    @Column(name = "enabled")
+    private Boolean enabled = false;
+
     public Long getId() {
         return id;
     }
@@ -83,5 +86,13 @@ public class AppUser {
 
     public void setRepeatPassword(String repeatPassword) {
         this.repeatPassword = repeatPassword;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }

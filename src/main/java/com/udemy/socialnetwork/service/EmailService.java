@@ -6,6 +6,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -26,6 +27,9 @@ public class EmailService {
 
     @Value("${spring.mail.enable}")
     private Boolean enableMail;
+
+    @Value(("${site.url}"))
+    private String url;
 
 
     private void send(MimeMessagePreparator preparator) {
@@ -49,14 +53,18 @@ public class EmailService {
 
 
     }
-    public void sendVerificationEmail(String emailAddress) {
+
+    @Async
+    public void sendVerificationEmail(String emailAddress, String token) {
 
         Context context = new Context();
-        context.setVariable("name", "Bob");
+        context.setVariable("token", token);
+        context.setVariable("url", url);
+
 
         String emailContents = templateEngine.process("verifyemail", context);
 
-        System.out.println(emailContents);
+        //System.out.println(emailContents);
 
         MimeMessagePreparator preparator = new MimeMessagePreparator() {
             @Override
