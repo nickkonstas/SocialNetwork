@@ -7,19 +7,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core"  prefix = "c" %>
-<%@ taglib uri = "http://www.springframework.org/security/tags"  prefix = "sec" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <c:set var = "contextRoot" value="${pageContext.request.contextPath}"/>
-    <title><tiles:insertAttribute name="title" />
+    <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
+    <title><tiles:insertAttribute name="title"/>
     </title>
     <!-- Bootstrap -->
     <link href="${contextRoot}/css/bootstrap.min.css" rel="stylesheet">
@@ -56,14 +56,17 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
-            <sec:authorize access="!isAuthenticated()">
-                <li><a href="${contextRoot}/login">Log In</a></li>
-                <li><a href="${contextRoot}/register">Register</a></li>
+                <sec:authorize access="!isAuthenticated()">
+                    <li><a href="${contextRoot}/login">Log In</a></li>
+                    <li><a href="${contextRoot}/register">Register</a></li>
 
-            </sec:authorize>
+                </sec:authorize>
 
                 <sec:authorize access="isAuthenticated()">
+
+                    <li><a href="${contextRoot}/profile">Profile</a></li>
                     <li><a href="javascript:$('#logoutForm').submit();">Log Out</a></li>
+
                 </sec:authorize>
 
                 <sec:authorize access="hasRole('ADMIN')">
@@ -90,7 +93,7 @@
 
 
 <div class="container">
-    <tiles:insertAttribute name="content" />
+    <tiles:insertAttribute name="content"/>
 </div>
 
 

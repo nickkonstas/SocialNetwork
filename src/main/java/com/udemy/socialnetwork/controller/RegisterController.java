@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.io.FileNotFoundException;
 import java.util.Date;
 
 @Controller
@@ -38,7 +39,8 @@ public class RegisterController {
     private String expiredTokenMessage;
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
-    ModelAndView registerView(ModelAndView modelAndView) {
+    ModelAndView registerView(ModelAndView modelAndView) throws FileNotFoundException {
+
 
         AppUser user = new AppUser();
         modelAndView.getModel().put("user", user);
@@ -63,8 +65,6 @@ public class RegisterController {
             return modelAndView;
         }
 
-        System.out.println(expiryDate);
-        System.out.println(new Date());
 
         AppUser user = token.getUser();
         if (user == null) {

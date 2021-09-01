@@ -68,4 +68,8 @@ public class AppUserService implements UserDetailsService {
     public void deleteToken(VerificationToken token) {
         verificationTokenDao.delete(token);
     }
+
+    public AppUser get(String email) {
+        return appUserDao.findByEmail(email);
+    }
 }

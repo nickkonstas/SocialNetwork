@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(
                         "/",
@@ -44,6 +45,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                         "/editStatus",
                                         "/deleteStatus")
                 .hasRole("ADMIN")
+                .antMatchers(
+                        "/profile",
+                                    "/edit-profile-about",
+                                    "/upload-profile-photo"
+                )
+                .authenticated()
                 .anyRequest()
                 .denyAll()
                 .and()
