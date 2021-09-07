@@ -39,6 +39,17 @@ public class AppUser {
     @Column(name = "enabled")
     private Boolean enabled = false;
 
+    public AppUser() {
+
+    }
+
+    public AppUser(String email, String password) {
+        this.email = email;
+        this.plainPassword = password;
+        this.repeatPassword = password;
+        this.enabled = true;
+    }
+
     public Long getId() {
         return id;
     }

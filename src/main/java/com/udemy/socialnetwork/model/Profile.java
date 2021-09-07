@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Set;
 
 @Entity
 @Table(name = "profile")
@@ -34,6 +35,18 @@ public class Profile {
     @Column(name = "photo_extension", length = 5)
     private String photoExtension;
 
+    @ManyToMany
+    @JoinTable(name = "profile_interests", joinColumns = {@JoinColumn(name = "profile_id")}, inverseJoinColumns = {@JoinColumn(name = "interest_id")})
+    private Set<Interest> interests;
+
+    public Profile() {
+
+    }
+
+    public Profile(AppUser user) {
+        this.user = user;
+    }
+
 
     public Long getId() {
         return id;
@@ -59,12 +72,19 @@ public class Profile {
         this.about = about;
     }
 
+
+    /*Create a profile that is suitable displaying via JSP */
     public void safeCopyFrom(Profile other) {
         if (other.about != null) {
             this.about = other.about;
         }
+
+        if(other.interests != null) {
+            this.interests = other.interests;
+        }
     }
 
+    /*Create a profile that is suitable for saving(Doesn't have weird html tags) */
     public void safeMergeFrom(Profile webProfile, PolicyFactory htmlPolicy) {
         this.about = htmlPolicy.sanitize(webProfile.about);
     }
@@ -106,4 +126,14 @@ public class Profile {
 
         return Paths.get(baseDirectory, photoDirectory, photoName + "." + photoExtension);
     }
+
+    public Set<Interest> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(Set<Interest> interests) {
+        this.interests = interests;
+    }
+
+
 }

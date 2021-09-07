@@ -72,4 +72,8 @@ public class AppUserService implements UserDetailsService {
     public AppUser get(String email) {
         return appUserDao.findByEmail(email);
     }
+
+    public AppUser get(Long id) {
+        return appUserDao.getAppUserById(id);
+    }
 }
