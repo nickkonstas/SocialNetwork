@@ -19,10 +19,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     AppUserService appUserService;
 
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
+                //.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(
                         "/",
@@ -51,7 +50,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                     "/edit-profile-about",
                                     "/upload-profile-photo",
                                     "/profilephoto",
-                                    "/profilephoto/*"
+                                    "/profilephoto/*",
+                                    "/save-interest",
+                                    "/delete-interest"
                 )
                 .authenticated()
                 .anyRequest()

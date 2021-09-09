@@ -5,9 +5,11 @@ import com.udemy.socialnetwork.exception.ImageTooSmallException;
 import com.udemy.socialnetwork.exception.InvalidImageFileException;
 import com.udemy.socialnetwork.model.AppUser;
 import com.udemy.socialnetwork.model.FileInfo;
+import com.udemy.socialnetwork.model.Interest;
 import com.udemy.socialnetwork.model.Profile;
 import com.udemy.socialnetwork.service.AppUserService;
 import com.udemy.socialnetwork.service.FileService;
+import com.udemy.socialnetwork.service.InterestService;
 import com.udemy.socialnetwork.service.ProfileService;
 import datatransformstatus.PhotoUploadStatus;
 import org.owasp.html.PolicyFactory;
@@ -41,6 +43,9 @@ public class ProfileController {
 
     @Autowired
     private AppUserService userService;
+
+    @Autowired
+    private InterestService interestService;
 
     @Autowired
     private ProfileService profileService;
@@ -198,5 +203,36 @@ public class ProfileController {
                 .contentLength(Files.size(photoPath))
                 .contentType(MediaType.parseMediaType(URLConnection.guessContentTypeFromName(photoPath.toString())))
                 .body(new InputStreamResource(Files.newInputStream(photoPath, StandardOpenOption.READ)));
+    }
+
+    @RequestMapping(value = "/save-interest", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<?> saveInterest(@RequestParam("name") String interestName) {
+
+        AppUser user = getUser();
+        Profile profile = profileService.getUserProfile(user);
+
+        String cleanedInterestName = htmlPolicy.sanitize(interestName);
+
+        Interest interest = interestService.createIfNotExists(cleanedInterestName);
+
+        profile.addInterest(interest);
+        profileService.save(profile);
+
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/delete-interest", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<?> deleteInterest(@RequestParam("name") String interestName) {
+
+        AppUser user = getUser();
+        Profile profile = profileService.getUserProfile(user);
+
+
+        profile.removeInterest(interestName);
+        profileService.save(profile);
+
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }
