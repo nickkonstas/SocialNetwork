@@ -101,6 +101,7 @@ public class ProfileController {
         Profile webProfile = new Profile();
         webProfile.safeCopyFrom(profile);
 
+
         modelAndView.getModel().put("userId", user.getId());
         modelAndView.getModel().put("profile", webProfile);
         modelAndView.setViewName("app.profile");
@@ -114,6 +115,8 @@ public class ProfileController {
 
         AppUser user = getUser();
         ModelAndView modelAndView = profileView(user);
+
+        modelAndView.getModel().put("ownProfile", true);
         return modelAndView;
     }
 
@@ -123,6 +126,8 @@ public class ProfileController {
 
         AppUser user = userService.get(id);
         ModelAndView modelAndView = profileView(user);
+
+        modelAndView.getModel().put("ownProfile", false);
         return modelAndView;
     }
 

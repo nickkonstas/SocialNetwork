@@ -6,17 +6,34 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>HomePage</title>
-</head>
-<body>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="homepage-status">
-                ${statusUpdate.text}
-            </div>
+
+<div class="row status-row">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="homepage-status">
+            ${statusUpdate.text}
         </div>
     </div>
-</body>
-</html>
+</div>
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 ">
+
+        <form method="post" >
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+            <div class="input-group input-group-lg">
+
+                <input type="text" class="form-control" name="s" placeholder="Search Interests">
+
+                <span class="input-group-btn">
+                    <button id="search-button" class="btn btn-primary" type="submit">
+                        Find People
+                    </button>
+                </span>
+            </div>
+        </form>
+
+    </div>
+</div>
+

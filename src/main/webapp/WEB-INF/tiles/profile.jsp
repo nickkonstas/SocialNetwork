@@ -24,7 +24,7 @@
                     </c:when>
                     <c:otherwise>
                         <c:forEach var="interestName" items="${profile.interests}">
-                           <li>${interestName}</li>
+                            <li>${interestName.name}</li>
                         </c:forEach>
                     </c:otherwise>
                 </c:choose>
@@ -39,7 +39,9 @@
                 </div>
 
                 <div class="text-center">
-                    <a href="#" id="uploadLink">Upload Photo</a>
+                    <c:if test="${ownProfile == true}">
+                        <a href="#" id="uploadLink">Upload Photo</a>
+                    </c:if>
                 </div>
             </div>
 
@@ -58,7 +60,9 @@
         </div>
 
         <div class="profile-about-edit">
-            <a href="${editProfileAbout}">Edit Profile</a>
+            <c:if test="${ownProfile==true}">
+                <a href="${editProfileAbout}">Edit Profile</a>
+            </c:if>
         </div>
 
         <c:url var="uploadPhotoLink" value="/upload-profile-photo"/>
@@ -159,6 +163,7 @@
             caseSensitive: false,
             allowSpaces: true,
             tagLimit: 10,
+
 
         });
 

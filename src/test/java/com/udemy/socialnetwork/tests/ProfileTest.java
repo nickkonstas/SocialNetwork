@@ -20,7 +20,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -61,11 +64,11 @@ public class ProfileTest {
 
             userService.register(user);
 
-            HashSet<Interest> interestSet = new HashSet<>();
+            Set<Interest> interestList = new HashSet<>();
 
             for(String interestText:interestArray) {
                 Interest interest = interestService.createIfNotExists(interestText);
-                interestSet.add(interest);
+                interestList.add(interest);
 
                 assertNotNull("Interest should not be null", interest);
                 assertNotNull("Interest should have ID", interest.getId());
@@ -74,12 +77,12 @@ public class ProfileTest {
             }
 
             Profile profile = new Profile(user);
-            profile.setInterests(interestSet);
+            profile.setInterests(interestList);
             profileService.save(profile);
 
             Profile retrievedProfile = profileService.getUserProfile(user);
 
-            assertEquals("Interest sets should match", interestSet, retrievedProfile.getInterests());
+            assertEquals("Interest sets should match", interestList, retrievedProfile.getInterests());
         }
 
     }
