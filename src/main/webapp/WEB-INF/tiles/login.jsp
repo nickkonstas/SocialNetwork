@@ -6,9 +6,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <c:url var="loginUrl" value="/login" />
+<c:url var="registerUrl" value="/register" />
 
 <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 register-prompt">
+        Please Log in or <a href="${registerUrl}"> click here to create an account.</a>It's free!!
+    </div>
+</div>
 
+<div class="row">
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 
         <c:if test="${param.error != null}">

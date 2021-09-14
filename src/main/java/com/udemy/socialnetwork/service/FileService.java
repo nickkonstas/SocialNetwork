@@ -2,7 +2,7 @@ package com.udemy.socialnetwork.service;
 
 import com.udemy.socialnetwork.exception.ImageTooSmallException;
 import com.udemy.socialnetwork.exception.InvalidImageFileException;
-import com.udemy.socialnetwork.model.FileInfo;
+import com.udemy.socialnetwork.model.dto.FileInfo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

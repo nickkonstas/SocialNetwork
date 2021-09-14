@@ -3,10 +3,10 @@ package com.udemy.socialnetwork.controller;
 
 import com.udemy.socialnetwork.exception.ImageTooSmallException;
 import com.udemy.socialnetwork.exception.InvalidImageFileException;
-import com.udemy.socialnetwork.model.AppUser;
-import com.udemy.socialnetwork.model.FileInfo;
-import com.udemy.socialnetwork.model.Interest;
-import com.udemy.socialnetwork.model.Profile;
+import com.udemy.socialnetwork.model.entity.AppUser;
+import com.udemy.socialnetwork.model.dto.FileInfo;
+import com.udemy.socialnetwork.model.entity.Interest;
+import com.udemy.socialnetwork.model.entity.Profile;
 import com.udemy.socialnetwork.service.AppUserService;
 import com.udemy.socialnetwork.service.FileService;
 import com.udemy.socialnetwork.service.InterestService;

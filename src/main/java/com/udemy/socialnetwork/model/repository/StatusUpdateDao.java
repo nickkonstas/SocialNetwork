@@ -1,7 +1,6 @@
-package com.udemy.socialnetwork.repository;
+package com.udemy.socialnetwork.model.repository;
 
-import com.udemy.socialnetwork.model.StatusUpdate;
-import org.springframework.data.repository.CrudRepository;
+import com.udemy.socialnetwork.model.entity.StatusUpdate;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

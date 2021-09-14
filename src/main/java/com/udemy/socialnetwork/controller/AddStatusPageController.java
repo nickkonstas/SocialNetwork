@@ -1,7 +1,7 @@
 package com.udemy.socialnetwork.controller;
 
 
-import com.udemy.socialnetwork.model.StatusUpdate;
+import com.udemy.socialnetwork.model.entity.StatusUpdate;
 import com.udemy.socialnetwork.service.StatusUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.Date;
 
 @Controller
 public class AddStatusPageController {

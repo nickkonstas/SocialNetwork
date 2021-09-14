@@ -1,6 +1,6 @@
 package com.udemy.socialnetwork.validation;
 
-import com.udemy.socialnetwork.model.AppUser;
+import com.udemy.socialnetwork.model.entity.AppUser;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

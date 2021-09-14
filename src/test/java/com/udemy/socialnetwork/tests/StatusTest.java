@@ -4,19 +4,17 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 
 import com.udemy.socialnetwork.SocialNetworkApplication;
-import com.udemy.socialnetwork.model.StatusUpdate;
-import com.udemy.socialnetwork.repository.StatusUpdateDao;
+import com.udemy.socialnetwork.model.entity.StatusUpdate;
+import com.udemy.socialnetwork.model.repository.StatusUpdateDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Calendar;
-import java.util.Optional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration

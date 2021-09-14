@@ -27,10 +27,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/",
                         "/about",
                         "/register",
+                        "/search",
+                        "/search/*",
                         "/registrationconfirmed",
                         "/expiredtoken",
                         "/invaliduser",
                         "/verifyemail",
+                        "/profilephoto",
+                        "/profilephoto/*",
                         "/confirmregister",
                         "/message")
                 .permitAll()
@@ -49,8 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                     "/profile/*",
                                     "/edit-profile-about",
                                     "/upload-profile-photo",
-                                    "/profilephoto",
-                                    "/profilephoto/*",
+
                                     "/save-interest",
                                     "/delete-interest"
                 )

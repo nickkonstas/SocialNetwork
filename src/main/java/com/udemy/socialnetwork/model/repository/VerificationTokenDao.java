@@ -1,7 +1,7 @@
-package com.udemy.socialnetwork.repository;
+package com.udemy.socialnetwork.model.repository;
 
 
-import com.udemy.socialnetwork.model.VerificationToken;
+import com.udemy.socialnetwork.model.entity.VerificationToken;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

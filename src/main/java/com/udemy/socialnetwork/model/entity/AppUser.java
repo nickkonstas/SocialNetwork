@@ -1,4 +1,4 @@
-package com.udemy.socialnetwork.model;
+package com.udemy.socialnetwork.model.entity;
 
 import com.udemy.socialnetwork.validation.PasswordMatch;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -6,6 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -39,15 +40,27 @@ public class AppUser {
     @Column(name = "enabled")
     private Boolean enabled = false;
 
+    @NotNull
+    @Column(name = "first_name", length = 20)
+    @Size(min = 2, max = 20, message = "{register.firstname.size}")
+    private String firstName;
+
+    @NotNull
+    @Column(name = "last_name", length = 25)
+    @Size(min = 2, max = 25, message = "{register.lastname.size}")
+    private String lastName;
+
     public AppUser() {
 
     }
 
-    public AppUser(String email, String password) {
+    public AppUser(String email, String password, String firstName, String lastName) {
         this.email = email;
-        this.plainPassword = password;
+        this.setPlainPassword(password);
         this.repeatPassword = password;
         this.enabled = true;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Long getId() {
@@ -105,5 +118,36 @@ public class AppUser {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", plainPassword='" + plainPassword + '\'' +
+                ", repeatPassword='" + repeatPassword + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", enabled=" + enabled +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

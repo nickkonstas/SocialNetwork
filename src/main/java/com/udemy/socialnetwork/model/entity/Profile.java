@@ -1,14 +1,13 @@
-package com.udemy.socialnetwork.model;
+package com.udemy.socialnetwork.model.entity;
 
 
+import com.udemy.socialnetwork.model.dto.FileInfo;
 import org.owasp.html.PolicyFactory;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 @Entity
@@ -143,5 +142,18 @@ public class Profile {
 
     public void removeInterest(String interestName) {
         interests.remove(new Interest(interestName));
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "id=" + id +
+                ", user=" + user +
+                ", about='" + about + '\'' +
+                ", photoName='" + photoName + '\'' +
+                ", photoDirectory='" + photoDirectory + '\'' +
+                ", photoExtension='" + photoExtension + '\'' +
+                ", interests=" + interests +
+                '}';
     }
 }

@@ -1,6 +1,6 @@
-package com.udemy.socialnetwork.repository;
+package com.udemy.socialnetwork.model.repository;
 
-import com.udemy.socialnetwork.model.Interest;
+import com.udemy.socialnetwork.model.entity.Interest;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

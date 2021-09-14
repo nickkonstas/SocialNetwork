@@ -1,4 +1,4 @@
-package com.udemy.socialnetwork.model;
+package com.udemy.socialnetwork.model.entity;
 
 public enum TokenType {
     REGISTRATION,

@@ -1,13 +1,13 @@
 package com.udemy.socialnetwork.service;
 
 
-import com.udemy.socialnetwork.model.StatusUpdate;
-import com.udemy.socialnetwork.repository.StatusUpdateDao;
+import com.udemy.socialnetwork.model.entity.StatusUpdate;
+import com.udemy.socialnetwork.model.repository.StatusUpdateDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -15,7 +15,8 @@ import java.util.Optional;
 @Service
 public class StatusUpdateService {
 
-    private final static int PAGESIZE = 5;
+    @Value("${status.pagesize}")
+    private int pageSize;
 
     @Autowired
     private StatusUpdateDao statusUpdateDao;
@@ -31,7 +32,7 @@ public class StatusUpdateService {
     public Page<StatusUpdate> getPage(int pageNumber) {
 
         //pageNumber - 1 because it's zero based
-        PageRequest pageRequest = PageRequest.of(pageNumber - 1, PAGESIZE, Sort.by("added").descending());
+        PageRequest pageRequest = PageRequest.of(pageNumber - 1, pageSize, Sort.by("added").descending());
         return statusUpdateDao.findAll(pageRequest);
     }
 

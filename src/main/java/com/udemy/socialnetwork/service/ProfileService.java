@@ -1,11 +1,10 @@
 package com.udemy.socialnetwork.service;
 
 
-import com.udemy.socialnetwork.model.AppUser;
-import com.udemy.socialnetwork.model.Profile;
-import com.udemy.socialnetwork.repository.ProfileDao;
+import com.udemy.socialnetwork.model.entity.AppUser;
+import com.udemy.socialnetwork.model.entity.Profile;
+import com.udemy.socialnetwork.model.repository.ProfileDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 @Service

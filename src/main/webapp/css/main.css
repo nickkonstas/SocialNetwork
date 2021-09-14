@@ -61,12 +61,24 @@ textarea {
     font-size: larger;
 }
 
+.status-row {
+    margin-top: 4em;
+    margin-bottom: 6em;
+
+}
+
 .edit-links {
     margin-top: 10px;
 }
 
 .login-form {
     width: 100%;
+}
+
+.register-prompt {
+    font-size: 1.3em;
+    text-align: center;
+    padding: 20px;
 }
 
 .login-form > div {
@@ -165,4 +177,40 @@ div[role=status] {
 
 #ui-id-1 {
     display: none;
+}
+
+#search-button {
+    background-color: gray;
+    text-shadow: 1px 1px 0px #985f0d;
+}
+
+#search-button:hover {
+    background-color: gray;
+    color: orange;
+}
+
+/* List of Results */
+
+.results-photo {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.results-details {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.results-name {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.results-interests {
+    font-size: 1.2em;
+}
+
+.person-row {
+    border: 1px solid orange;
+    margin-bottom: 2px;
 }

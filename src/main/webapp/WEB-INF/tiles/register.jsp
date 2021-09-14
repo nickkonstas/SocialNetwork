@@ -22,15 +22,20 @@
 
 
             <div class="panel-body">
-                <form:form method="post" modelAttribute="user" class="login-form">
+                <form:form method="post" modelAttribute="user" class="login-form" autocomplete="false">
+
+                    <div class="input-group">
+                        <form:input type="text" path="firstName" placeholder="First Name" class="form-control"  />
+                        <span class="input-group-btn" style="width: 20px;"></span>
+                        <form:input type="text" path="lastName" placeholder="Last Name" class="form-control" />
+                    </div>
 
                     <div class="input-group">
                         <form:input type="text" path="email" placeholder="E-mail Address" class="form-control" />
                     </div>
 
                     <div class="input-group">
-                        <form:input type="password" path="plainPassword" placeholder="Password"
-                               class="form-control" />
+                        <form:input type="password" path="plainPassword" placeholder="Password" class="form-control" />
                     </div>
 
                     <div class="input-group">

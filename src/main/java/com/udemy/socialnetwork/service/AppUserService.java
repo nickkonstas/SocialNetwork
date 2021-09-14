@@ -1,10 +1,10 @@
 package com.udemy.socialnetwork.service;
 
-import com.udemy.socialnetwork.model.AppUser;
-import com.udemy.socialnetwork.model.TokenType;
-import com.udemy.socialnetwork.model.VerificationToken;
-import com.udemy.socialnetwork.repository.AppUserDao;
-import com.udemy.socialnetwork.repository.VerificationTokenDao;
+import com.udemy.socialnetwork.model.entity.AppUser;
+import com.udemy.socialnetwork.model.entity.TokenType;
+import com.udemy.socialnetwork.model.entity.VerificationToken;
+import com.udemy.socialnetwork.model.repository.AppUserDao;
+import com.udemy.socialnetwork.model.repository.VerificationTokenDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

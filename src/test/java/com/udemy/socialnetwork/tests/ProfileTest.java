@@ -6,9 +6,9 @@ import static org.junit.Assert.assertEquals;
 
 
 import com.udemy.socialnetwork.SocialNetworkApplication;
-import com.udemy.socialnetwork.model.AppUser;
-import com.udemy.socialnetwork.model.Interest;
-import com.udemy.socialnetwork.model.Profile;
+import com.udemy.socialnetwork.model.entity.AppUser;
+import com.udemy.socialnetwork.model.entity.Interest;
+import com.udemy.socialnetwork.model.entity.Profile;
 import com.udemy.socialnetwork.service.AppUserService;
 import com.udemy.socialnetwork.service.InterestService;
 import com.udemy.socialnetwork.service.ProfileService;
@@ -20,9 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -43,9 +41,9 @@ public class ProfileTest {
 
 
     private AppUser[] users = {
-            new AppUser("test12@emample.com", "hello"),
-            new AppUser("test13@emample.com", "hello"),
-            new AppUser("test14@emample.com", "hello"),
+            new AppUser("test12@emample.com", "hello", "maria", "nikolaidi"),
+            new AppUser("test13@emample.com", "hello", "giannis", "agiannis"),
+            new AppUser("test14@emample.com", "hello", "predrak", "djordjevic"),
     };
 
     private String[][] interests = {

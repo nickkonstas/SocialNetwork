@@ -1,8 +1,8 @@
 package com.udemy.socialnetwork.controller;
 
 
-import com.udemy.socialnetwork.model.AppUser;
-import com.udemy.socialnetwork.model.VerificationToken;
+import com.udemy.socialnetwork.model.entity.AppUser;
+import com.udemy.socialnetwork.model.entity.VerificationToken;
 import com.udemy.socialnetwork.service.AppUserService;
 import com.udemy.socialnetwork.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;

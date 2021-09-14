@@ -7,6 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:url var="search" value="/search"/>
+
 <div class="row status-row">
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="homepage-status">
@@ -19,7 +23,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 ">
 
-        <form method="post" >
+        <form action="${search}" method="post" >
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
             <div class="input-group input-group-lg">

@@ -1,8 +1,8 @@
 package com.udemy.socialnetwork.service;
 
 
-import com.udemy.socialnetwork.model.Interest;
-import com.udemy.socialnetwork.repository.InterestDao;
+import com.udemy.socialnetwork.model.entity.Interest;
+import com.udemy.socialnetwork.model.repository.InterestDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
