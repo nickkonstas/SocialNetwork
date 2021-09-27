@@ -36,7 +36,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/profilephoto",
                         "/profilephoto/*",
                         "/confirmregister",
-                        "/message")
+                        "/message/*",
+                        "/app/message/*")
                 .permitAll()
                 .antMatchers(
                         "/js/*",
@@ -55,7 +56,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                     "/upload-profile-photo",
 
                                     "/save-interest",
-                                    "/delete-interest"
+                                    "/delete-interest",
+                                    "/webjars/**",
+                                    "/chat/**",
+                                    "/app/*",
+                                    "/chatview/*",
+                                    "/message/send/*"
                 )
                 .authenticated()
                 .anyRequest()

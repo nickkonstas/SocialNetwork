@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -75,5 +76,14 @@ public class AppUserService implements UserDetailsService {
 
     public AppUser get(Long id) {
         return appUserDao.getAppUserById(id);
+    }
+
+    public String getUserName(Long chatWithUserId) {
+        Optional<AppUser> userOptional = appUserDao.findById(chatWithUserId);
+
+        AppUser user = userOptional.get();
+
+        return user.getFirstName() + " " + user.getLastName();
+
     }
 }

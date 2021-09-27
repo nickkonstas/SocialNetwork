@@ -17,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.test.context.support.WithUserDetails;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -36,6 +37,8 @@ import com.udemy.socialnetwork.service.AppUserService;
 @AutoConfigureMockMvc
 @SpringBootTest(classes = SocialNetworkApplication.class)
 @Transactional
+@TestPropertySource(locations = "classpath:test.properties")
+
 public class ProfileControllerRestTest {
 
     @Autowired

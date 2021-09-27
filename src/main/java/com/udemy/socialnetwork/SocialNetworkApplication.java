@@ -45,6 +45,7 @@ public class SocialNetworkApplication {
         UrlBasedViewResolver tilesViewResolver = new UrlBasedViewResolver();
 
         tilesViewResolver.setViewClass(TilesView.class);
+        tilesViewResolver.setOrder(0);
         return tilesViewResolver;
     }
 
